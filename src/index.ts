@@ -1,5 +1,3 @@
-
-
 // app.get('/posts/:id', async (req: Request, res: Response) => {
 //    try {
 //       let message = "Success!"

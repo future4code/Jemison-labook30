@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { PostBusiness } from "../business/PostBusiness";
-import { PostInputDTO } from "../model/post";
+import { PostInputDTO, postOutput } from "../model/post";
 
-
+const postBusiness = new PostBusiness()
 
 export class PostController {
 
@@ -19,7 +19,7 @@ export class PostController {
                 authorId
             }
 
-            const postBusiness = new PostBusiness()
+            
             await postBusiness.createPost(input);
 
             res.status(201).send({ message: "Sucess!" })
@@ -28,4 +28,20 @@ export class PostController {
             res.status(400).send(error.message)
         }
     }
+
+    public getPost = async (req: Request, res: Response) => {
+
+        try {
+            
+            const {id} = req.params
+
+            const post: postOutput = await postBusiness.getPost(id)
+
+            res.status(200).send({post})
+            
+        } catch (error:any) {
+            res.status(400).send(error.message)
+        }
+    }
+
 }

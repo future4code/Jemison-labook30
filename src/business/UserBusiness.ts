@@ -4,8 +4,9 @@ import { user, UserInputDTO } from "../model/user";
 import { IdGenerator } from "../service/IdGenerator";
 
 
-export class UserBusiness {
 
+export class UserBusiness {
+    
     public insertUser = async (input: UserInputDTO) => {
 
         try {

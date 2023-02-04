@@ -8,7 +8,6 @@ export type post = {
     photo: string,
     description: string,
     type: POST_TYPES,
-    createdAt: string,
     authorId: string
 }
 
@@ -19,3 +18,10 @@ export interface PostInputDTO {
     authorId: string
     
  }
+
+export type postOutput = {
+    photo: string,
+    description: string,
+    type: POST_TYPES,
+    authorId: string
+}

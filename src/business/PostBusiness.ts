@@ -1,11 +1,12 @@
 import { PostDatabase } from "../data/PostDatabase";
 import { CustomError } from "../error/customError";
-import { post, PostInputDTO } from "../model/post";
+import { post, PostInputDTO, postOutput } from "../model/post";
 import { IdGenerator } from "../service/IdGenerator";
 
+const postDatabase = new PostDatabase()
 
 export class PostBusiness {
-
+    
     public createPost = async (input: PostInputDTO) => {
 
         try {
@@ -17,15 +18,14 @@ export class PostBusiness {
             }
 
             const id: string = new IdGenerator().generateId()
-            const createdAt: string = Date.now().toString()
-            const postDatabase = new PostDatabase()
+            const createdAt: number = Date.now()
+            
 
             const post: post = {
                 id,
                 photo,
                 description,
                 type,
-                createdAt,
                 authorId
             }
 
@@ -35,4 +35,9 @@ export class PostBusiness {
             throw new CustomError(error.statusCode, error.message)
         }
     } 
+
+    public getPost = async (id: string) => {
+
+        return await postDatabase.getPost(id)
+    }
 }

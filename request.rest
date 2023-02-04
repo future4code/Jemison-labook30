@@ -2,7 +2,22 @@ POST http://localhost:3003/user/create
 Content-Type: application/json 
 
 {
-    "name": "Alfredo Bonaparte",
-    "email": "fedinhodelas@email.com",
-    "password": "1223145153"
+    "name": "Daenerys Targueryen",
+    "email": "fireandblood@fire.com",
+    "password": "tacofogo"
 }
+
+###
+POST http://localhost:3003/post/create 
+Content-Type: application/json 
+
+{
+    "photo": "https://cdn.pixabay.com/photo/2023/01/29/00/16/drums-7751985_960_720.jpg",
+    "description": "Adoro bateria... ainda vou aprender a tocar!",
+    "type": "normal",
+    "authorId": "9df1d69b-b5a4-4edd-8d6f-5007550f7e1d"
+}
+
+###
+GET http://localhost:3003/post/get-post/41898205-4c2c-4282-862d-9cc6d2f9802b
+Content-Type: application/json 
